@@ -6,6 +6,8 @@ import {colors} from "../components/colors";
 import background from "../assets/backgrounds/bg1.png";
 import BigText from "../components/Texts/BigText";
 import RegularText from "../components/Texts/RegularText";
+import SmallTexts from "../components/Texts/SmallTexts";
+import RegularButton from "../components/Buttons/RegularButton";
 
 
 const WelcomeContainer = styled(Container)`
@@ -25,6 +27,7 @@ const BottomSection = styled.View`
   width: 100%;
   padding: 25px;
   flex: 1;
+  justify-content: flex-end;
 `;
 
 const TopImage = styled.Image`
@@ -40,7 +43,20 @@ const Welcome: FunctionComponent = () => {
                     <TopImage source={background} />
                 </TopSection>
                 <BottomSection>
-                    <BigText>Best Way to Track Your Money</BigText>
+                    <BigText
+                        textStyles={{ width: "70%", marginBottom: 25 }}
+                    >Best Way to Track Your Money
+                    </BigText>
+
+                    <SmallTexts
+                        textStyles={{ width: "70%", marginBottom: 25}}
+                    >
+                        Best Payment Method, connects your money to your friends and family.
+                    </SmallTexts>
+
+                    <RegularButton onPress={() => {}}>
+                        Get Started
+                    </RegularButton>
                 </BottomSection>
             </WelcomeContainer>
         </>
