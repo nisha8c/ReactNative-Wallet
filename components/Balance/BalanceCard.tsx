@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components/native";
 
-import { CardProps } from "./types";
-import { ScreenWidth } from "../shared";
+import { BalanceCardProps } from "./types";
 import {colors} from "../colors";
 
 import card_bg from "../../assets/backgrounds/bg2.png";
@@ -10,15 +9,11 @@ import RegularText from "../Texts/RegularText";
 import SmallTexts from "../Texts/SmallTexts";
 import {View} from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
-import { Props as HomeProps } from "../../screens/Home";
-
 const CardBackground = styled.ImageBackground`
   height: 75%;
-  width: ${ScreenWidth * 0.67}px;
+  width: 100%;
   background-color: ${colors.accent};
   border-radius: 25px;
-  margin-right: 25px;
   overflow: hidden;
 `;
 
@@ -49,19 +44,18 @@ const Logo = styled.Image`
 
 // minute 20:02: https://www.youtube.com/watch?v=68l7wyHw97Y
 
-const CardItem: FunctionComponent<CardProps> = (props) => {
+const BalanceCard: FunctionComponent<BalanceCardProps> = (props) => {
 
-    const navigation = useNavigation<HomeProps["navigation"]>();
     const handlePress = () => {
-        navigation.navigate("Balance", {...props});
+
     };
     return (
         <CardBackground source={card_bg}>
-            <CardTouchable underlayColor={colors.secondary} onPress={handlePress}>
+
                 <TouchableView>
                     <CardRow>
                         <RegularText>
-                            ******{props.accountNo.slice(6, 10)}
+                            ******{props?.accountNo?.slice(6, 10)}
                         </RegularText>
                     </CardRow>
                     <CardRow>
@@ -79,9 +73,9 @@ const CardItem: FunctionComponent<CardProps> = (props) => {
                         <Logo source={props.logo} />
                     </CardRow>
                 </TouchableView>
-            </CardTouchable>
+
         </CardBackground>
     );
 };
 
-export default CardItem;
+export default BalanceCard;

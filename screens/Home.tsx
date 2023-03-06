@@ -4,10 +4,21 @@ import styled from "styled-components/native";
 
 import { Container } from "../components/shared";
 import { colors } from "../components/colors";
+
 import CardSection from "../components/Cards/CardSection";
 import mastercard_logo from "../assets/cards/MasterCard.png";
 import visacard_logo from "../assets/cards/visacard.png";
+import portrait1 from "../assets/portraits/1.jpeg";
+import portrait2 from "../assets/portraits/2.jpeg";
+import portrait3 from "../assets/portraits/3.jpeg";
+
 import TransactionSection from "../components/Transactions/TransactionSection";
+import SendMoneySection from "../components/SendMoney/SendMoneySection";
+
+
+import { RootStackParamList } from "../navigators/RootStack";
+import { StackScreenProps } from "@react-navigation/stack";
+export type Props = StackScreenProps<RootStackParamList, "Home">;
 
 const HomeContainer = styled(Container)`
   background-color: ${colors.graylight};
@@ -15,7 +26,7 @@ const HomeContainer = styled(Container)`
   flex: 1;
 `;
 
-const Home: FunctionComponent = () => {
+const Home: FunctionComponent<Props> = () => {
     const cardsData = [
         {
             id: 1,
@@ -76,11 +87,36 @@ const Home: FunctionComponent = () => {
         },
     ];
 
+    const sendMoneyData = [
+        {
+            id: 1,
+            amount: "1679.32",
+            name: "Tim D",
+            background: colors.primary,
+            img: portrait1
+        },
+        {
+            id: 2,
+            amount: "1979.32",
+            name: "Kunal D",
+            background: colors.tertiary,
+            img: portrait2
+        },
+        {
+            id: 3,
+            amount: "3679.32",
+            name: "Bjarne E",
+            background: colors.accent,
+            img: portrait3
+        },
+    ];
+
     return (
         <HomeContainer>
             <StatusBar style={"dark"} />
             <CardSection data={cardsData} />
             <TransactionSection data={transactionData} />
+            <SendMoneySection data={sendMoneyData} />
         </HomeContainer>
     );
 };

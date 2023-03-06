@@ -9,6 +9,10 @@ import RegularText from "../components/Texts/RegularText";
 import SmallTexts from "../components/Texts/SmallTexts";
 import RegularButton from "../components/Buttons/RegularButton";
 
+import { RootStackParamList } from "../navigators/RootStack";
+import { StackScreenProps } from "@react-navigation/stack";
+type Props = StackScreenProps<RootStackParamList, "Welcome">;
+
 
 const WelcomeContainer = styled(Container)`
   background-color: ${colors.secondary};
@@ -34,7 +38,7 @@ const TopImage = styled.Image`
   width: 100%;
   height: 100%;
 `;
-const Welcome: FunctionComponent = () => {
+const Welcome: FunctionComponent<Props> = ({ navigation }) => {
     return (
         <>
             <StatusBar style="light" />
@@ -54,7 +58,7 @@ const Welcome: FunctionComponent = () => {
                         Best Payment Method, connects your money to your friends and family.
                     </SmallTexts>
 
-                    <RegularButton onPress={() => {}}>
+                    <RegularButton onPress={() => { navigation.navigate("Home")}}>
                         Get Started
                     </RegularButton>
                 </BottomSection>
