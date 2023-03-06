@@ -32,6 +32,9 @@ const RootStack: FunctionComponent = () => {
                     headerRightContainerStyle: {
                         paddingRight: 25,
                     },
+                    headerLeftContainerStyle: {
+                        paddingLeft: 10,
+                    },
                     headerRight: () => (
                         <Profile
                             img={Avi}
