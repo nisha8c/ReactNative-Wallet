@@ -42,8 +42,6 @@ const Logo = styled.Image`
   flex: 1;
 `;
 
-// minute 20:02: https://www.youtube.com/watch?v=68l7wyHw97Y
-
 const BalanceCard: FunctionComponent<BalanceCardProps> = (props) => {
 
     const handlePress = () => {
